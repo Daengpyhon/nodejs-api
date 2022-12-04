@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const app = express()
 const bodyParser = require('body-parser')
-app.use(route)
+
 app.use(morgan('dev'))
 app.use(bodyParser.json({limit: '20mb'}))
 app.use(cors())
@@ -14,7 +14,7 @@ const mongoDB = "mongodb+srv://mernapp:99199097@cluster0.dyrlanl.mongodb.net/per
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const route = require('./route')
-
+app.use(route)
 const port = 8000
 
 if(mongoDB){
